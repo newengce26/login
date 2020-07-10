@@ -41,6 +41,11 @@ class LoginController extends Controller
     //override username function from AuthenticateUsers Trait
     public function username()
     {
-        return 'mobile';
+        //return 'mobile';
+        //request() --- is an associative array ['key' => 'value'] ex: ['email=> test@gmail.com','mobile=>98484']
+        $loginValue = request()->input('identity'); //then we must filter the input value to determine what the user entered (email or mobile)
+        $field = filter_var($loginValue,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
+        request()->merge([$field  => $loginValue]);
+        return $field;
     }
 }

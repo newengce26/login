@@ -22,6 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 
 
+//login with social service [facebook,twitter, ...]
+Route::get('/redirect/{service}', 'SocialController@redirect');
+Route::get('/callback/{service}', 'SocialController@callback');
+
 
 /* Instead of using all the following routes, laravel by default installed all the routes required for authintication in the above format
 
