@@ -17,13 +17,11 @@ class SocialController extends Controller
 
 
     //get the user info from the social service [facebook] and insert it into database
-
     public function callback($service) {
 
-        //$user = Socialite::with($service)->user();
-        $user = Socialite::with($service)->User();
-        return json_encode($user);
-
+        $user = Socialite::with($service)->user();
+        //return json_encode($user);
+        return response()->json($user);
     }
 
 }
