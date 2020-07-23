@@ -79,9 +79,21 @@
                 </div>
             @endif
 
+
+            <form action="">
+                    @csrf
+        
+                    <input type="text">
+                    <input type="text">
+                    <input type="submit">
+            </form>
+
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   @if(1===1)
+                        <div class="lara">Elzero1</div>
+                        <div class="lara">Elzero2</div>
+                   @endif
                 </div>
 
                 <div class="links">

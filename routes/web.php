@@ -26,6 +26,22 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/redirect/{service}', 'SocialController@redirect');
 Route::get('/callback/{service}', 'SocialController@callback');
 
+//explain protected $fillable of the model
+Route::get('fillable','CrudController@getOffer');
+Route::get('hiden','CrudController@hidePrice');
+
+//routes to insert data into database using boostrap form
+
+    //Route::get('store','CrudController@store');
+Route::group([
+        'prefix' => LaravelLocalization::setLocale(),'middleware'=> [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+            ], function(){
+            Route::group(['prefix' =>'offers'], function()
+            {
+                Route::get('create','CrudController@create');
+                Route::post('store','CrudController@store')->name('offers.store');
+            });
+});
 
 /* Instead of using all the following routes, laravel by default installed all the routes required for authintication in the above format
 

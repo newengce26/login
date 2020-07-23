@@ -23,5 +23,4 @@ class SocialController extends Controller
         //return json_encode($user);
         return response()->json($user);
     }
-
 }

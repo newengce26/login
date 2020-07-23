@@ -58,17 +58,15 @@
                                     {{ __('Login') }}
                                 </button>
 
+                                <a href="{{url('/redirect/facebook')}}" class="btn btn-primary">
+                                    {{ __('Login With Facebook') }}
+                                </a>
+
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
-
-                            <div class="col-md-8 offset-md-4">
-                                <a href="{{url('/redirect/facebook')}}">
-                                    {{ __('Login With Facebook') }}
-                                </a>
                             </div>
                         </div>
                     </form>

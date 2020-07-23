@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         \app\Console\Commands\SubscriptionExpiration::class,
+        \app\Console\Commands\Notify::class,
+
     ];
 
     /**
@@ -27,8 +29,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('user:expire')
-                 ->everyMinute();
+        $schedule->command('user:expire')->everyMinute();
+
+        //send email to users every day
+        $schedule->command('notify:email')->daily();
     }
 
     /**
